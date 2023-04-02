@@ -21,13 +21,13 @@
 //#include "sensesp_onewire/onewire_temperature.h"
 
 #include <Arduino.h>
-#include "include/Adafruit_BMP280.h"
+//#include "include/Adafruit_BMP280.h"
 #include "sensesp/transforms/linear.h"
 #include "sensesp/transforms/analogvoltage.h"
 #include "sensesp/transforms/curveinterpolator.h"
 #include "sensesp/transforms/voltagedivider.h"
 #include "sensesp/sensors/digital_input.h"
-#include "SensESP/src/sensesp/sensors"
+#include "sensesp/sensors/Adafruit_BMP280.h"
 //#include "sensesp/sensors/Adafruit_BMP280.h"
 #include "sensesp/transforms/frequency.h"
 
