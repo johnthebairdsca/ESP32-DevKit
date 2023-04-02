@@ -27,6 +27,7 @@
 #include "sensesp/transforms/curveinterpolator.h"
 #include "sensesp/transforms/voltagedivider.h"
 #include "sensesp/sensors/digital_input.h"
+#include "SensESP/src/sensesp/sensors"
 //#include "sensesp/sensors/Adafruit_BMP280.h"
 #include "sensesp/transforms/frequency.h"
 
