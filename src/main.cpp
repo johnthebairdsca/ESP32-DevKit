@@ -21,7 +21,7 @@
 //#include "sensesp_onewire/onewire_temperature.h"
 
 #include <Arduino.h>
-#include "include"
+#include "include/Adafruit_BMP280.h"
 #include "sensesp/transforms/linear.h"
 #include "sensesp/transforms/analogvoltage.h"
 #include "sensesp/transforms/curveinterpolator.h"
