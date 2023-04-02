@@ -16,10 +16,9 @@
 #include "sensesp_app_builder.h"
 
 
-#include <Adafruit_BMP280.h>
 #include <Wire.h>
 
-#include "sensesp_onewire/onewire_temperature.h"
+//#include "sensesp_onewire/onewire_temperature.h"
 
 #include <Arduino.h>
 
@@ -28,6 +27,7 @@
 #include "sensesp/transforms/curveinterpolator.h"
 #include "sensesp/transforms/voltagedivider.h"
 #include "sensesp/sensors/digital_input.h"
+#include "sensesp/sensors/Adafruit_BMP280.h"
 #include "sensesp/transforms/frequency.h"
 
 
@@ -51,6 +51,17 @@ void setup() {
                     //->set_wifi("My WiFi SSID", "my_wifi_password")
                     ->set_sk_server("192.168.1.147", 3000)
                     ->get_app();
+
+
+/// 1-Wire Temp Sensors - Exhaust Temp Sensors ///
+
+  DallasTemperatureSensors* dts = new DallasTemperatureSensors(17);
+
+  auto* exhaust_temp =
+      new OneWireTemperature(dts, 1000, "/Exhaust Temperature/oneWire");
+
+  exhaust_temp->connect_to(new Linear(1.0, 0.0, "/Exhaust Temperature/linear"))
+      ->connect_to(new SKOutputFloat("propulsion.main.exhaustTemperature","/Exhaust Temperature/sk_path"));
 
 
   // Start networking, SK server connections and other SensESP internals
